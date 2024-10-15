@@ -168,7 +168,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const { createPage, createRedirect } = actions;
 
   createRedirect({
-    fromPath: "/docs/",
+    fromPath: "/docs",
     isPermanent: false,
     redirectInBrowser: true,
     toPath: "/docs/getting-started-with-open-data-hub",

@@ -1,17 +1,17 @@
-import { HeadFC, Link, PageProps } from "gatsby";
-import * as React from "react";
+import React, { useEffect } from "react"
+import { navigate } from "gatsby"
 
-const NotFoundPage: React.FC<PageProps> = () => {
-  return (
-    <main>
-      <h1>Page not found</h1>
-      <p>
-        <Link to="/">Go home</Link>
-      </p>
-    </main>
-  );
-};
+const NotFoundPage = () => {
+  useEffect(() => {
+    const path = window.location.pathname
+    if (path === "/docs" || path === "/docs/") {
+      navigate("/docs/getting-started-with-open-data-hub")
+    } else {
+      navigate("/") // or to any default 404 page
+    }
+  }, [])
 
-export default NotFoundPage;
+  return <div>Redirecting...</div>
+}
 
-export const Head: HeadFC = () => <title>Not found</title>;
+export default NotFoundPage
